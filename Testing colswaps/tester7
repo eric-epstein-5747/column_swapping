@@ -1,0 +1,18 @@
+#!/bin/bash
+# tester7 tests whether swapper works when 1st and last col are empty
+
+s1=',guy,little,
+,beast,little,
+,animal,little,'
+
+s2=$(cat output7)
+
+# printf "$s2\n"
+# printf "$s1\n"
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test7 tests whether swapper works when 1st and \last col are empty.
+else
+	echo 0 test7 tests whether swapper works when 1st and \last col are empty.
+fi

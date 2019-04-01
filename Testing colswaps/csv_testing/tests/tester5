@@ -1,0 +1,19 @@
+#!/bin/bash
+# Tests whether the col swapper can handle rows with too few values. 
+
+s1='texture,size,status,disposition
+furry,little,he is,guy
+fluffy,little,beast
+destructive,little,she is,animal'
+
+s2=$(cat ./outputs/output5.csv)
+
+# printf "$s2\n"
+# printf "$s1\n"
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test5 tests whether the col swapper can handle rows with too few values.
+else
+	echo 0 test5 tests whether the col swapper can handle rows with too few values.
+fi

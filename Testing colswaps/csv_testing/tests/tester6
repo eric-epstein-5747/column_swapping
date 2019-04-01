@@ -1,0 +1,19 @@
+#!/bin/bash
+# Tests whether the col swapper not only swaps the desired columns but still writes the other columns. 
+
+s1='texture,disposition,size,status
+furry,guy,little,he is
+fluffy,beast,little,I say
+destructive,animal,little,she is'
+
+s2=$(cat ./outputs/output6.csv)
+
+# printf "$s2\n"
+# printf "$s1\n"
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test6 tests whether the col swapper not only swaps the desired columns but still writes the other columns.
+else
+	echo 0 test6 tests whether the col swapper not only swaps the desired columns but still writes the other columns. 
+fi

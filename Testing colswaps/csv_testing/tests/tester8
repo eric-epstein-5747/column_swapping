@@ -1,0 +1,20 @@
+#!/bin/bash
+# test8 tests whether swapper works when all cols are empty.
+
+s1='texture,disposition,size,status
+,,,
+,,,
+,,,
+end1,end3,end2,end4'
+
+s2=$(cat ./outputs/output8.csv)
+
+# printf "$s2\n"
+# printf "$s1\n"
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test8 tests whether swapper works when all cols are empty.
+else
+	echo 0 test8 tests whether swapper works when all cols are empty.
+fi

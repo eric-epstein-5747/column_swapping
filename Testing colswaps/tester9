@@ -1,0 +1,18 @@
+#!/bin/bash
+# test9 tests whether swapper works when you're swapping two adjacent cols. 
+
+s1='my,furry,cute,little,guy
+my,fluffy,cute,little,beast
+my,destructive,cute,little,animal'
+
+s2=$(cat output9)
+
+# printf "$s2\n"
+# printf "$s1\n"
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test9 tests whether swapper works when you are swapping two adjacent cols.
+else
+	echo 0 test9 tests whether swapper works when you are swapping two adjacent cols.
+fi

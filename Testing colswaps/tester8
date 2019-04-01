@@ -1,0 +1,18 @@
+#!/bin/bash
+# test8 tests whether swapper works when all cols are empty.
+
+s1=',,,
+,,,
+,,,'
+
+s2=$(cat output8)
+
+# printf "$s2\n"
+# printf "$s1\n"
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test8 tests whether swapper works when all cols are empty.
+else
+	echo 0 test8 tests whether swapper works when all cols are empty.
+fi

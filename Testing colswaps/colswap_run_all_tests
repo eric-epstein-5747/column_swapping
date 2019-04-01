@@ -1,0 +1,39 @@
+#!/bin/bash -e
+# Takes 7 input files and tests the column swap program on those files.
+# USAGE: ./colswap_run_all_tests ~/Saimoukh/Lemmy/regex_swapcol
+# To add more tests: write the input file and the tester, copying the structure of the existing testers. 
+# Hand write the desired output into the tester. Then add an appropriate line to this script, of the form:
+# ${1} n m inputk > outputk ; ./testerk outputk
+#
+# Perhaps change output of testers to get rid of unnecessary characters. May want to use 'ok' vs 'not ok'.
+# Perhaps add to output of each tester a quick summary of what the tester is testing. 
+# Depending how complicated the output is, it might be useful to put the result at the beginning, to find easily later. 
+
+# TEST DESCRIPTIONS:
+# 1. test1 tests whether the col swapper works when an empty first col (1) is swapped with an occupied last col (3). (n, m) = (1, 3)
+# 2. tester2 tests whether the col swapper works when an empty last col (3) is swapped with an occupied middle col (2). (n, m) = (2, 3)
+# 3. test3 tests whether the colswap program works when an empty middle column (2) is swapped with an occupied last column (3). (n, m) = (2, 3)
+# 4. test4 tests whether the colswap program can handle escaped commas. 
+# 5. test5 tests whether the col swapper works when some of the rows have fewer fields than others, as long as the swap is done on cols that are defined for each row. 
+# 6. test6 tests whether the col swapper not only swaps the desired columns but still writes the other columns. 
+# 7. test7 tests whether swapper works when 1st and last col are empty
+# 8. test8 tests whether swapper works when all cols are empty
+# 9. test9 tests whether swapper works when you are swapping two adjacent cols
+# 10. test10 tests whether swapper works when you are swapping two middle cols
+
+
+
+
+cd ~/Saimoukh/Lemmy/Testing\ colswaps
+${1} 1 3 input1 > output1 ; ./tester1 output1
+${1} 2 3 input2 > output2 ; ./tester2 output2
+${1} 2 3 input3 > output3 ; ./tester3 output3
+${1} 2 3 input4 > output4 ; ./tester4 output4
+${1} 3 4 input5 > output5 ; ./tester5 output5
+${1} 2 3 input6 > output6 ; ./tester6 output6
+${1} 2 3 input7 > output7 ; ./tester7 output7
+${1} 2 3 input8 > output8 ; ./tester8 output8
+${1} 3 4 input9 > output9 ; ./tester9 output9
+${1} 2 4 input10 > output10 ; ./tester10 output10
+
+

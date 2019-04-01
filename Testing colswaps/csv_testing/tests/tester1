@@ -1,0 +1,18 @@
+#!/bin/bash
+# Tests whether the col swapper works when an empty col 1 is swapped with an occupied col 3.
+
+s1="disposition,size,texture
+,little,furry
+,little,fluffy
+,little,destructive"
+s2=$(cat ./outputs/output1.csv)
+
+# printf "$s2\n"
+# printf "$s1\n"
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test1 swaps empty 1st col with occupied \last col.
+else
+	echo 0 test1 swaps empty 1st col with occupied \last col.
+fi

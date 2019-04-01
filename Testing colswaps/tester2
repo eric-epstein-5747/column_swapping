@@ -1,0 +1,17 @@
+#!/bin/bash
+# Tests whether the col swapper works when an empty col 3 is swapped with an occupied col 2
+
+s1='furry,,little
+fluffy,,little
+destructive,,little'
+s2=$(cat output2)
+
+# printf "$s2\n"
+# printf "$s1\n"
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test2 swaps empty \last col and occupied middle col.
+else
+	echo 0 test2 swaps empty \last col and occupied middle col.
+fi

@@ -1,0 +1,18 @@
+#!/bin/bash
+# Tests whether the col swapper can handle escaped commas.
+
+s1='furry,guy,cute\,little
+fluffy,beast,little
+destructive,animal,little'
+
+s2=$(cat output4)
+
+# printf "$s2\n"
+# printf "$s1\n"
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test4 tests whether swapper can handle escaped commas.
+else
+	echo 0 test4 tests whether swapper can handle escaped commas.
+fi
