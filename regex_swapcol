@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+# Given two numbers M and N and a csv file FILE 
+# which has at least max(M, N) columns, prints the 
+# result of swapping the Nth and Mth columns of FILE. 
+# USAGE: ./regex_swapcol 1 3 Koyangi.csv
+
+import re
+import sys
+
+f = open(sys.argv[3])
+
+# WLOG, assume that N < M. To accord with Python's convention
+# for naming columns (i.e., starting with 0), we redefine M and N
+# as m and n by subtracting 1 from each. 
+n = min(int(sys.argv[1])-1, int(sys.argv[2])-1)
+m = max(int(sys.argv[1])-1, int(sys.argv[2])-1)
+
+for line in f: 
+	#	       __________1____________  __2__  ___3________________________  __4____  _5
+	c = re.sub(r'^((?:[^,]*,){'+str(n)+r'})([^,]*)(,(?:[^,]*,){'+str(m-n-1)+r'})([^,\n]*)(.*)\n',r'\1\4\3\2\5',line)
+	print(c)
