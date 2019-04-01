@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+# USAGE: ./test_export_html 
+# Or even better: /home/eric/Saimoukh/Lemmy/Testing colswaps/colswap_run_all_tests regex_swapcol | ./test_export_html > test_results.html
+# Or, run from Testing Colswaps directory: ./colswap_run_all_tests ~/Saimoukh/Lemmy/regex_swapcol | ../test_export_html > test_results.html
+
+
+import sys
+import re
+
+print('<html>')
+print('<head>TEST RESULTS\n</head>')
+print('<body>')
+print('<table>')
+
+print('<tr><td>Test Name:</td><td>Test Result:</td></tr>')
+
+# for each line in stdin, grab the test name ('test1') and the result ('0') and put them
+# in 1st and 2nd cols of that row.
+for line in sys.stdin:
+	r = re.match(r'(^[01]) (test[0-9]+).*', line)
+	if line[0] == '1':
+		print('<tr><td style="background-color:green">'+r.group(2)+'</td><td style="background-color:green">'+r.group(1)+'</td></tr>')
+	else: print('<tr><td style="background-color:red">'+r.group(2)+'</td><td style="background-color:red">'+r.group(1)+'</td></tr>')
+print('</table>')
+print('</body>')
+print('</html>')
