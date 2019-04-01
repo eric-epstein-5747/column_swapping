@@ -1,0 +1,21 @@
+#!/bin/bash
+# test8 tests whether swapper works when all cols are empty.
+
+cd ..
+sqlite3 -csv inputs.db 'select texture,size,disposition,status from input8;' > ~/Saimoukh/sqlite_colswaps/outputs/output8
+
+s1=',,,
+,,,
+,,,'
+
+s2=$(cat ~/Saimoukh/sqlite_colswaps/outputs/output8)
+
+# printf "$s2\n"
+# printf "$s1\n"
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test8 tests whether swapper works when all cols are empty.
+else
+	echo 0 test8 tests whether swapper works when all cols are empty.
+fi

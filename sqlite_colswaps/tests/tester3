@@ -1,0 +1,17 @@
+#!/bin/bash
+# Tests whether the colswap program works when an empty column 2 is swapped with an occupied column 3.
+
+cd ..
+sqlite3 -csv inputs.db 'select texture,disposition,size from input3;' > ~/Saimoukh/sqlite_colswaps/outputs/output3
+
+s1='furry,guy,
+fluffy,beast,
+destructive,animal,'
+s2=$(cat ~/Saimoukh/sqlite_colswaps/outputs/output3)
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test3 swaps empty middle col and occupied \last col.
+else
+	echo 0 test3 swaps empty middle col and occupied \last col.
+fi

@@ -1,0 +1,43 @@
+#!/bin/bash -e
+# Takes 7 input files and tests the column swap program on those files.
+# USAGE: ./sql_colswap_batchtest
+# Or, from the parent directory: 
+# ./tests/sql_colswap_batchtest
+# NOTE: Individual tests are written to be run from ~/Saimoukh/sqlite_colswaps/tests. 
+# They will not run correctly from parent directory. This is because each test starts with an 
+# instruction to find the database inputs.db, which lives in the parent directory. Therefore, 
+# running test from parent directory directs us one level too high to find the database. 
+#
+# To add more tests: write the input file as a table in sqlite3. Write the tester, copying the structure of the existing testers. 
+# Hand write the desired output into the tester. Then add an appropriate line to this script, of the form:
+# ./testerk
+
+
+# TEST DESCRIPTIONS:
+# 1. test1 tests whether the col swapper works when an empty first col (1) is swapped with an occupied last col (3). (n, m) = (1, 3)
+# 2. tester2 tests whether the col swapper works when an empty last col (3) is swapped with an occupied middle col (2). (n, m) = (2, 3)
+# 3. test3 tests whether the colswap program works when an empty middle column (2) is swapped with an occupied last column (3). (n, m) = (2, 3)
+# 4. test4 tests whether the colswap program can handle escaped commas. 
+# 5. test5 tests whether the col swapper works when some of the rows have fewer fields than others, as long as the swap is done on cols that are defined for each row. 
+# 6. test6 tests whether the col swapper not only swaps the desired columns but still writes the other columns. 
+# 7. test7 tests whether swapper works when 1st and last col are empty
+# 8. test8 tests whether swapper works when all cols are empty
+# 9. test9 tests whether swapper works when you are swapping two adjacent cols
+# 10. test10 tests whether swapper works when you are swapping two middle cols
+
+
+
+
+cd ~/Saimoukh/sqlite_colswaps/tests
+./tester1
+./tester2
+./tester3
+./tester4
+./tester5
+./tester6
+./tester7
+./tester8
+./tester9
+./tester10
+
+

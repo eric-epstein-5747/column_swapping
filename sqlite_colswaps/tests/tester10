@@ -1,0 +1,18 @@
+#!/bin/bash
+# test10 tests whether swapper works when you are swapping two middle cols.
+
+cd ..
+sqlite3 -csv inputs.db 'select ownership,size,status,texture,disposition from input10;' > ~/Saimoukh/sqlite_colswaps/outputs/output10
+
+s1='my,little,cute,furry,guy
+my,little,cute,fluffy,beast
+my,little,cute,destructive,animal'
+
+s2=$(cat ~/Saimoukh/sqlite_colswaps/outputs/output10)
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test10 tests whether swapper works when you are swapping two middle cols.
+else
+	echo 0 test10 tests whether swapper works when you are swapping two middle cols.
+fi

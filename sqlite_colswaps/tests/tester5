@@ -1,0 +1,18 @@
+#!/bin/bash
+# Tests whether the col swapper can handle rows with too few values. 
+
+cd ..
+sqlite3 -csv inputs.db 'select texture,size,status,disposition from input5;' > ~/Saimoukh/sqlite_colswaps/outputs/output5
+
+s1='furry,little,he is,guy
+fluffy,little,beast
+destructive,little,she is,animal'
+
+s2=$(cat ~/Saimoukh/sqlite_colswaps/outputs/output5)
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test5 tests whether the col swapper can handle rows with too few values.
+else
+	echo 0 test5 tests whether the col swapper can handle rows with too few values.
+fi

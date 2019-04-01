@@ -1,0 +1,18 @@
+#!/bin/bash
+# tester7 tests whether swapper works when 1st and last col are empty
+
+cd ..
+sqlite3 -csv inputs.db 'select texture,disposition,size,status from input7;' > ~/Saimoukh/sqlite_colswaps/outputs/output7
+
+s1=',guy,little,
+,beast,little,
+,animal,little,'
+
+s2=$(cat ~/Saimoukh/sqlite_colswaps/outputs/output7)
+
+if [ "$s1" == "$s2" ];
+then
+	echo 1 test7 tests whether swapper works when 1st and \last col are empty.
+else
+	echo 0 test7 tests whether swapper works when 1st and \last col are empty.
+fi
