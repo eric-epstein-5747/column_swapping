@@ -1,8 +1,0 @@
-# Tests a column swap program PROG on the test file Koyangi.csv, 
-# swapping columns 1 and 3 by doing the following: 
-# Runs PROG on Koyangi.csv, sending the result to the file TEST1_OUTPUT.
-# Then opens TEST1_OUTPUT and checks whether it matches a manual 
-# swap of cols 1 and 3. If it matches, prints "test1 result: pass". If # not, prints "test1 result: fail".
-# USAGE: ./test1 PROG
-
-${1} ~/Saimoukh/Lemmy/Koyangi.csv 1 3 | testfilesidentical ~/Saimoukh/Lemmy/Koyangi31 -
